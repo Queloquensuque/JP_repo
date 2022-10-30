@@ -8,7 +8,7 @@
         <meta name="author" content="" />
         <title>
                 {% block my_blog_title %}
-                    home
+                    Artistas
                 {% endblock %}    
         </title>
         <!-- Favicon-->
@@ -61,28 +61,19 @@
 
                 {% endblock%}
 
-               
-                {% block my_blog_headerr %}
-        <!-- Page Header-->
-        <header class="masthead" style="background-image: url('/static/home/assets/img/home-bg.jpg')">
-            <div class="container position-relative px-4 px-lg-5">
-                <div class="row gx-4 gx-lg-5 justify-content-center">
-                    <div class="col-md-10 col-lg-8 col-xl-7">
-                        <div class="site-heading">
-                            <h1>Clean Blog</h1>
-                            <span class="subheading">A Blog Theme by Start Bootstrap</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
-        {% endblock %}
-        {% block my_blog_content %}
+                {% block my_blog_content %}
+
                 <!-- Page content-->
                 <div class="container-fluid">
-                    <h1 class="mt-4">Mi Blog CoderHouse</h1>
-                    <p>Este blog posee información de bandas musicales y su historia.</p>
+                    <h1 class="mt-4">Información de Artistas musicales</h1>
                     
+                    <ul> 
+                        {% for artista in artistas %}
+                        <li>
+                            {{ artista }}
+                        </li>
+                        {% endfor %}
+                    </ul>
                 </div>
 
                 {% endblock %}

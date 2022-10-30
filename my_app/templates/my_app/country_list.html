@@ -1,18 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Countries</title>
-</head>
-<body>
-    <ul> {% for country in countrys %}
-        <li>
-            {{ country }}
-        </li>
-        {% endfor %}
-    </ul>
-   
-</body>
+    <head>
+        {% load static %}
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>
+                {% block my_blog_title %}
+                    Paises
+                {% endblock %}    
+        </title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="{% static 'home/assets/favicon.ico' %}" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{% static 'home/css/styles.css' %}" rel="stylesheet" />
+    </head>
+    <body>
+        <div class="d-flex" id="wrapper">
+            <!-- Sidebar-->
+
+
+
+            <div class="border-end bg-white" id="sidebar-wrapper">
+                <div class="sidebar-heading border-bottom bg-light">JP blog queloquensuque</div>
+                <div class="list-group list-group-flush">
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{% url 'my_app:country-list' %}">Paises</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{% url 'banda:bandas-list' %}">Bandas</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{% url 'artista:artists-list' %}">Artistas</a>
+                </div>
+            </div>
+
+            <!-- Page content wrapper-->
+            <div id="page-content-wrapper">
+
+                {% block my_blog_header %}    
+
+                <!-- Top navigation-->
+                <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+                    <div class="container-fluid">
+                        <button class="btn btn-primary" id="sidebarToggle">Toggle Menu</button>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+                                <li class="nav-item active"><a class="nav-link" href="{% url 'home:home' %}">Home</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#!">Link</a></li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="#!">Action</a>
+                                        <a class="dropdown-item" href="#!">Another action</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#!">Something else here</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+
+                {% endblock%}
+
+               
+                {% block my_blog_headerr %}
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url('/static/home/assets/img/home-bg.jpg')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="site-heading">
+                            <h1>Clean Blog</h1>
+                            <span class="subheading">A Blog Theme by Start Bootstrap</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        {% endblock %}
+        {% block my_blog_content %}
+                <!-- Page content-->
+                <div class="container-fluid">
+                    <h1 class="mt-4">Información de Bandas musicales</h1>
+                    
+                    <ul> 
+                        {% for country in countrys %}
+                        <li>
+                            {{ country }}
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                {% endblock %}
+            </div>
+        </div>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="{% static 'home/js/scripts.js' %}"></script>
+    </body>
 </html>
