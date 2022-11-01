@@ -62,7 +62,7 @@
                 {% endblock%}
 
                
-                {% block my_blog_headerr %}
+        {% block my_blog_headerr %}
         <!-- Page Header-->
         <header class="masthead" style="background-image: url('/static/home/assets/img/home-bg.jpg')">
             <div class="container position-relative px-4 px-lg-5">
@@ -79,36 +79,18 @@
         {% endblock %}
         
         {% block my_blog_content %}
-                <!-- Mensajes-->
-                <div class="container position-relative px-4 px-lg-5">
-                    <div class="row gx-4 gx-lg-5 justify-content-center">
-                        <div class="col-md-10 col-lg-8 col-lx-7">
-                            {% if messages %}
-                                {% for message in messages %}
-                                    <div class="alert {{ message.tags }}" role="alert">
-                                        {{ message }}
-                                    </div>
-                                {% endfor %}
-                                <!--Divisor-->
-                                <hr class="my-4" /> 
-                            {% endif %} 
-                        </div>     
-                    </div>
+               
+                <!-- Formularios-->
+                <div>
+                    <form action="" method="POST">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <input type="submit" class="btn btn-primary" value="Guardar país" />
+                    </form>
                 </div>
-                <!-- Page content-->
-                <div class="container-fluid">
-                    <h1 class="mt-4">Información de Paises</h1>
-                    
-                    <ul> 
-                        {% for country in countrys %}
-                        <li>
-                            {{ country }}
-                        </li>
-                        {% endfor %}
-                    </ul>
-                </div>
-
-                {% endblock %}
+                <!--Divisor-->
+                <hr class="my-4"/>
+        {% endblock %}
             </div>
         </div>
         <!-- Bootstrap core JS-->
